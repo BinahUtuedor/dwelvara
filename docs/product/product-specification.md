@@ -2,20 +2,20 @@
 
 ## Unified Product Requirements & Technical Specification
 
-**Version:** 1.2
+**Version:** 1.4
 **Initial launch market:** Lagos, Nigeria
 **Initial country:** Nigeria
 **Future markets:** Abuja, Port Harcourt, other Nigerian cities, United Kingdom, additional countries
 **Implementation tooling:** Claude Code and OpenAI Codex
 **Repository strategy:** Monorepo from day one
 **Backend architecture:** Node.js/TypeScript + Python
-**Primary proposition:** Trusted property discovery through verified property professionals, transparent verification and a first-class intelligence layer.
+**Primary proposition:** A trusted property marketplace and intelligence platform that helps people discover, verify, evaluate and ultimately transact property with confidence.
 
 ---
 
 # 1. Product Vision
 
-Build a trusted property marketplace where buyers, renters and investors can discover genuine properties offered by verified property professionals while clearly understanding what has and has not been independently verified.
+Build a trusted property marketplace and intelligence platform where buyers, renters and investors can discover genuine properties offered by verified property professionals, understand what has and has not been independently verified, evaluate properties using trustworthy intelligence and, over time, complete more of the property transaction journey with confidence.
 
 The first production market is:
 
@@ -41,7 +41,45 @@ without redesigning the core marketplace.
 
 The long-term product is:
 
-> A reusable, multi-market trusted-property platform, initially deployed in Lagos.
+> A reusable, multi-market property intelligence, trust and transaction platform, initially deployed in Lagos.
+
+The long-term customer journey is:
+
+```text
+DISCOVER
+   ↓
+VERIFY
+   ↓
+EVALUATE
+   ↓
+TRANSACT
+   ↓
+ESTABLISH OWNERSHIP CONFIDENCE
+```
+
+The underlying long-term capability chain is:
+
+```text
+DISCOVERY
+    ↓
+VERIFICATION
+    ↓
+PROPERTY INTELLIGENCE
+    ↓
+PRICING INTELLIGENCE
+    ↓
+NEIGHBOURHOOD INTELLIGENCE
+    ↓
+TRUST / FRAUD / RISK
+    ↓
+TRANSACTION
+    ↓
+OWNERSHIP
+```
+
+The simpler customer journey and the more detailed capability chain describe the same product direction at different levels. Dwelvara should progressively help a user understand not only what is advertised, but whether the property, professional, price, location context, risk and eventual transaction can be trusted.
+
+The MVP does not implement the full transaction journey. Transaction enablement is a future strategic direction and must be introduced incrementally only when the required product, legal, operational, security and market controls are understood.
 
 ---
 
@@ -65,11 +103,17 @@ LEAD MANAGEMENT
 MARKETPLACE DATA
         +
 PROPERTY INTELLIGENCE
+        +
+PRICING & INVESTMENT INTELLIGENCE
+        +
+NEIGHBOURHOOD INTELLIGENCE
+        +
+TRUST / RISK INTELLIGENCE
 ```
 
 The customer proposition is:
 
-> **Find properties and property professionals you can trust.**
+> **Discover, verify and evaluate property with evidence you can trust.**
 
 Initial property supply should primarily come from verified:
 
@@ -79,6 +123,69 @@ Developers
 ```
 
 Private-owner listings may be introduced later once an appropriate ownership-verification process exists.
+
+
+### 2.1 Strategic Data Advantage
+
+Dwelvara should treat high-quality marketplace data as a compounding product asset rather than a by-product of listings.
+
+Where lawful, appropriate and permitted by the platform's privacy and data-governance rules, marketplace activity may progressively create structured data about:
+
+```text
+Properties
+Listings and price history
+Verification outcomes
+Agent and developer reputation
+Geography and location context
+Search and demand signals
+Saved properties
+Enquiries and viewing activity
+Fraud and anomaly signals
+Property comparables
+Verified transaction outcomes
+Approved external and geospatial data
+Infrastructure and neighbourhood context
+Valuation and rental intelligence outputs
+Ownership and title outcomes where lawfully available
+```
+
+This data may improve trust, risk, recommendation, valuation, property, pricing, investment, neighbourhood and market intelligence over time. Where lawful and reliable, verified transaction and ownership outcomes can strengthen the evidence base further.
+
+The strategic flywheel is:
+
+```text
+Marketplace activity
+        ↓
+Higher-quality property, market, trust and demand data
+        ↓
+Better intelligence
+        ↓
+Better discovery, verification and evaluation
+        ↓
+More useful marketplace interactions
+        ↓
+More high-quality data
+```
+
+The data asset must not weaken privacy, consent, security, provenance or market-specific governance requirements.
+
+### 2.2 Future Transaction Enablement
+
+Dwelvara's initial marketplace journey ends primarily in enquiries and viewing requests. The long-term platform may extend beyond lead generation into transaction enablement.
+
+Potential future capabilities include:
+
+```text
+Offer and negotiation workflows
+Transaction milestones
+Professional-service integrations
+Payment or escrow integrations where legally and operationally appropriate
+Financing or mortgage integrations
+Verified transaction outcomes
+```
+
+These capabilities are not MVP requirements. When introduced, authoritative transaction state and consequential actions remain owned by Node.js/TypeScript workflows, with appropriate human, legal and operational controls.
+
 
 ---
 
@@ -195,6 +302,16 @@ Core marketplace functionality must remain operational if Python intelligence se
 ### 4.10 Avoid Premature Microservices
 
 Start with clearly separated applications and modules rather than dozens of independently deployed services.
+
+
+### 4.11 Intelligence Should Benefit from the Data Flywheel
+
+Marketplace events, property history, verification outcomes, demand signals, verified transaction outcomes and approved external data should be designed so they can support progressively better derived intelligence without weakening runtime ownership or privacy boundaries.
+
+### 4.12 Transaction Enablement Remains Marketplace-Owned
+
+Future offer, negotiation, payment, financing, closing or transaction-milestone capabilities are authoritative marketplace workflows. Node.js/TypeScript owns their state and permissions. Python may provide supporting risk, valuation, recommendation or explanatory intelligence but does not execute consequential transaction decisions independently.
+
 
 ---
 
@@ -3410,6 +3527,9 @@ Core intelligence domains are:
 Trust Intelligence
 Risk Intelligence
 Property Intelligence
+Pricing Intelligence
+Investment Intelligence
+Neighbourhood Intelligence
 Market Intelligence
 Recommendation Intelligence
 ```
@@ -3436,6 +3556,59 @@ User-facing intelligence should distinguish marketplace facts, derived statistic
 
 ---
 
+## 104B. Evidence-Backed Property Evaluation
+
+Dwelvara should progressively assemble an evidence-backed property evaluation from independently governed intelligence services rather than relying on a single opaque score. Depending on data availability and market, a property evaluation may include:
+
+```text
+Property verification status
+Professional verification status
+Title/document review status
+Estimated market value and uncertainty interval
+Asking-price assessment
+Comparable properties
+Area price trend
+Estimated rent
+Estimated gross rental yield
+Flood/environmental exposure
+Road and transport accessibility
+Infrastructure context
+Fraud/risk indicators
+Overall confidence / evidence completeness
+```
+
+Not every field will be available in every market. Missing or low-quality evidence must be represented as unavailable or uncertain rather than inferred as fact.
+
+An AI property intelligence agent may answer questions such as "Is this property a good investment?" only by orchestrating approved intelligence services and grounding the response in available evidence. It should expose the important evidence, assumptions, provenance and uncertainty behind the answer rather than present an unsupported recommendation.
+
+### Neighbourhood Intelligence
+
+Neighbourhood Intelligence is a first-class intelligence domain. Subject to lawful, reliable and market-appropriate data sources, it may combine:
+
+```text
+Flood and environmental exposure
+Road accessibility
+Transport connectivity
+Infrastructure context
+Power / utility context where reliable data exists
+Schools and education access
+Healthcare access
+Amenities
+Area development signals
+Local supply and demand
+Price and rental trends
+```
+
+Measures must distinguish objective source data, derived statistics and subjective assessments. Provenance and freshness should be retained where practical.
+
+### Pricing and Investment Intelligence
+
+Pricing Intelligence may combine asking-price history, verified transaction data where available, comparables, market statistics, property characteristics, geospatial context and future AVM outputs.
+
+Investment Intelligence may combine pricing intelligence with rental estimates, estimated yield, market trends, demand, neighbourhood context and trust/risk signals. It is decision support, not financial advice, and should communicate assumptions and uncertainty.
+
+---
+
 # 105. Future Intelligence
 
 Python:
@@ -3443,8 +3616,11 @@ Python:
 ```text
 Recommendations
 Property comparables
+Pricing intelligence
+Neighbourhood intelligence
+Investment intelligence
 Advanced geospatial analytics
-Rental yield
+Rental estimates and yield
 Demand modelling
 Advanced fraud
 Automated valuation
@@ -3463,6 +3639,49 @@ Market intelligence agent
 ```
 
 These agents orchestrate intelligence; they do not replace machine-learning predictions or authoritative marketplace workflows.
+
+---
+
+# 105A. Future Transaction Enablement
+
+After the marketplace, trust and intelligence foundations are validated, Dwelvara may progressively support more of the property transaction lifecycle.
+
+Potential future capabilities:
+
+```text
+Offers and negotiation
+Transaction milestones
+Professional-service integrations
+Payment / escrow integrations where appropriate
+Financing / mortgage integrations
+Verified transaction outcomes
+```
+
+This is a future strategic direction, not an MVP commitment.
+
+Node.js/TypeScript remains authoritative for transaction state, permissions, lifecycle transitions and consequential actions. Python intelligence may support these workflows with valuation, risk, recommendation, anomaly detection and explanations, but must not independently execute or approve transactions.
+
+Verified transaction outcomes, when lawfully and reliably captured, may become high-value inputs to comparables, market intelligence and future automated valuation models.
+
+### Future Ownership Confidence
+
+Dwelvara may eventually support a post-transaction ownership-confidence layer where legally and operationally appropriate. Potential capabilities include ownership verification, title/document records, verified transaction completion, verified ownership transitions and property ownership history.
+
+```text
+Property
+   ↓
+Listing and asking-price history
+   ↓
+Verification history
+   ↓
+Verified transaction outcome
+   ↓
+Verified ownership transition
+   ↓
+Future resale / rental history
+```
+
+This is a long-term direction, not an MVP commitment. Dwelvara must not claim legal ownership or title status without appropriate authoritative evidence, professional/legal controls and jurisdiction-specific processes.
 
 ---
 

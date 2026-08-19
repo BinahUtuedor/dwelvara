@@ -79,6 +79,9 @@ The core service domains are:
 Trust Intelligence
 Risk Intelligence
 Property Intelligence
+Pricing Intelligence
+Investment Intelligence
+Neighbourhood Intelligence
 Market Intelligence
 Recommendation Intelligence
 ```
@@ -89,9 +92,22 @@ Risk Intelligence may combine fraud-model predictions, anomaly signals, duplicat
 
 Property Intelligence may combine property facts, listing history, comparables, market statistics, geospatial context, future AVM predictions and trust/risk signals.
 
+
+Pricing Intelligence may combine asking-price history, verified transaction data where available, comparables, market statistics, property characteristics, geospatial context and future AVM outputs. It must preserve the distinction between asking prices, verified transaction prices and model estimates.
+
+Investment Intelligence may combine pricing intelligence with rental estimates, estimated yield, demand, market trends, neighbourhood context and trust/risk signals. Outputs are decision support and should expose assumptions and uncertainty.
+
+Neighbourhood Intelligence may combine approved geospatial and external data about flood/environmental exposure, road accessibility, transport, infrastructure, utilities where reliable, schools, healthcare, amenities, development signals, local supply/demand and price/rental trends. It must preserve provenance and distinguish facts, derived measures and subjective assessments.
+
 Market Intelligence may combine supply, demand, asking-price distributions, time on market, geographic patterns and trends.
 
 Recommendation Intelligence may combine user intent, search behaviour, saved listings, property eligibility, trust constraints, ranking models and marketplace rules.
+
+## Evidence-Backed Property Evaluation
+
+The intelligence layer should be able to assemble a property evaluation from governed services, potentially including verification, document status, estimated value, asking-price assessment, comparables, area trends, rental estimate, yield, neighbourhood context, risk indicators and confidence/evidence completeness. Missing evidence must remain visibly missing or uncertain.
+
+A future property intelligence agent may answer questions such as "Is this property a good investment?" by orchestrating these services. The response must be grounded in available evidence and expose material assumptions, provenance and uncertainty.
 
 ## AI Agents
 
